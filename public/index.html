@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- Replace with Local-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <style>
+        #background-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -5;
+        }
+
+        footer
+        {
+          margin-top: 100px;
+          background: #999;
+          opacity: 0.4; 
+          display: -webkit-box;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-top-left-radius: 25px;
+          border-top-right-radius: 25px;
+        }
+
+        footer:hover
+        {
+          margin-top: 100px;
+          background: black;
+          color: white;
+          display: -webkit-box;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-top-left-radius: 25px;
+          border-top-right-radius: 25px;
+        }
+
+        .container {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .card {
+          border: 3px solid;
+          padding-bottom: 3%;
+          width: 25rem;
+          margin-bottom: -15px;
+        }
+        
+        .rounded {
+          border-radius: 25px;
+        }
+
+      hr {
+        border-top: 2px solid rgba(0,0,0,.1);
+      }
+
+    </style>
+    <title>Weather App!</title>
+
+        <!-- Load Functions -->
+        <script src='./js/functions.js'></script>
+        <!-- Now Load Required scripts-->
+        <script>
+          
+        </script>
+  </head>
+
+  <body>
+    <a href="https://redirct.page.link/WeatherAppProjectGithub"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>    <h1 id="hide-js" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">You need to enable JavaScript to see this page!</h1>
+
+    <div id="js-enabled" style="display: none">
+      <script>
+        loadFirstTime();
+        //Unhide if Javascript is enabled
+        document.getElementById("js-enabled").setAttribute("style", "display: block;");
+        document.getElementById("hide-js").setAttribute("style", "display: none");
+      </script>
+<center>
+          <!-- Card for Main Weather Information-->
+          <div class="container">
+            <div class="card" id = "card-main" >
+              <div class="card-header rounded" id="card-top">
+                <img class="card-img-top" id="weather_icon" src="./media/loading.gif" style="width: 128px; height: 128px; margin-left: auto; margin-right: auto; align-items: center; justify-content: center;">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Current Weather</h5>
+                <p class="card-text"> <span id="msg_user"> </span><strong id='city_name'></strong></p>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                      <th scope="col">Statistics</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><img src="/media/img/icon-description.png"  height="24" width="24"> </td>
+                      <td class="text-color-show-inf" >Weather Today</td>
+                      <td class="text-color-show-inf" id="current_weather_descp">Waiting...</td>
+                    </tr>
+                    <tr>
+                      <td><img src="/media/img/icon-temp.png"  height="24" width="24"> </td>
+                      <td class="text-color-show-inf"  >Current Temperature</td>
+                      <td class="text-color-show-inf"  id="current_temp">Waiting...</td>
+                    </tr>
+                    <tr>
+                      <td><img src="/media/img/icon-feels-like.png"  height="24" width="24"> </td>
+                      <td class="text-color-show-inf" >Feels Like</td>
+                      <td class="text-color-show-inf" id="current_feels_like">Waiting...</td>
+                    </tr>
+                    <tr>
+                      <td><img src="/media/img/icon-max-temp.png"  height="24" width="24"> </td>
+                      <td class="text-color-show-inf" >Maximum Temperature</td>
+                      <td class="text-color-show-inf"  id="current_max">Waiting...</td>
+                    </tr>
+                    <tr>
+                      <td><img src="/media/img/icon-min-temp.png"  height="24" width="24"> </td>
+                      <td class="text-color-show-inf" >Minimum Temperature</td>
+                      <td class="text-color-show-inf" id="current_min">Waiting...</td>
+                    </tr>
+                    <tr>
+                      <td><img src="/media/img/icon-windspeed.png"  height="24" width="24"> </td>
+                      <td class="text-color-show-inf" >Wind Speed</td>
+                      <td class="text-color-show-inf" id="current_wind_speed">Waiting...</td>
+                    </tr>
+                  </tbody>
+                </table>
+            <!-- Card to search zip codes-->
+                <hr style="margin: 55px;">
+                <table class="table">
+
+                  <p class="card-text" style="font-weight: bold;">If the city is wrong or you want to search another city, you can search using a Zip Code (<img src="/media/img/usa-only.png"  height="24" width="24"> US only at the moment) or use your Geolocation <img src="/media/img/globe.png"  height="24" width="24">)<p>
+                  <input type="number" class="form-control mb-2" id="zipCodeForm" placeholder="Enter Zip Code">
+
+
+                  <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-2" onclick="callOnZip()"><img src="/media/img/search-mag-glass.png"  height="24" width="24"> Zip Code</button>
+                    <button type="submit" class="btn btn-primary mb-2" onclick="callOnGeo()"><img src="/media/img/search-geoloc.png"  height="24" width="24"> Geolocation</button>
+                  </div>
+                </table>
+
+              </div>
+            </div>
+          </div>
+          <!-- End of Container-->
+</center>
+    </div>
+    <footer style="font-weight: bold;"><span id="background-credit">#</span> - <span id="background-credit-url">#</span></footer>
+    <video autoplay muted loop id="background-video">
+      <source src="" type="video/mp4">
+  </video>
+  </body>
+</html>

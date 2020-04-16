@@ -1,0 +1,177 @@
+{
+	
+    "day":
+    {
+        "sky":
+        {
+            "background-video": ["src", "/media/video/day/day-clear.mp4"],
+            "background-credit": ["txt","Video by Paulo Renato from Pexels"],
+            "background-credit-url": ["txt", "https://www.pexels.com/video/a-residential-community-built-besides-lake-de-garda-3653222/"],
+            "card-main": ["style", "border-color: #399cbd; background-color: #e8f4f8;"],
+            "card-top": ["style", "background-color: #BBF0F3; background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        },
+        "cloudy":
+        {
+            "background-video": ["src", "/media/video/day/day-cloudy.mp4"],
+            "background-credit": ["txt","Video by Magda Ehlers from Pexels"],
+            "background-credit-url": ["txt", "https://www.pexels.com/video/green-fields-under-a-blue-and-cloudy-sky-3843101/"],
+            "card-main": ["style", "border-color: #399cbd; background-color: #e8f4f8;"],
+            "card-top": ["style", "background-color: #BBF0F3; background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        },
+        "rain":
+        {
+            "background-video": ["src", "/media/video/day/day-rain.mp4"],
+            "background-credit": ["txt", "Video by Joel Dunn from Pexels"],
+            "background-credit-url": ["txt", "https://www.pexels.com/video/droplets-of-water-in-a-water-basin-creating-a-splash-3535854/"],
+            "card-main": ["style", "border-color: #52a9ba; background-color: #5ab9cc;"],
+            "card-top": ["style", "background: linear-gradient(to bottom, #74ebd5, #acb6e5);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        },
+        "snow":
+        {
+            "background-video": ["src", "/media/video/day/day-snow.mp4"],
+            "background-credit": ["txt","Video by invisiblepower from Pexels"],
+            "background-credit-url": ["txt","https://www.pexels.com/video/aerial-shot-of-sunset-857021/"],
+            "card-main": ["style", "border-color: #a4d4de; background-color: #d1f7ff;"],
+            "card-top": ["style", "background: linear-gradient(to bottom, #4ca1af, #c4e0e5);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        },
+        "storm":
+        {
+            "background-video": ["src", "/media/video/day/day-storm.mp4"],
+            "background-credit": ["txt", "Video by Engin Akyurt from Pexels"],
+            "background-credit-url":  ["txt", "https://www.pexels.com/video/palm-trees-on-a-windy-day-1730394/"],
+            "card-main": ["style", "border-color: #3f7696; background-color: #519dc9;"],
+            "card-top": ["style", "background: linear-gradient(to bottom, #525252, #3d72b4);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        },
+        "mist":
+        {
+            "background-video": ["src", "/media/video/day/day-mist.mp4"],
+            "background-credit": ["txt", "Video by Pixabay from Pexels"],
+            "background-credit-url":  ["txt", "https://www.pexels.com/video/aerial-video-of-coastline-854752/"],
+            "card-main": ["style", "border-color: #3f7696; background-color: #519dc9;"],
+            "card-top": ["style", "background: linear-gradient(to bottom, #525252, #3d72b4);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        }
+    },
+    "sunset":
+    {
+        "sky":
+        {
+            "background-video": ["src", "/media/video/sunset/sunset-clear.mp4"],
+            "background-credit": ["txt","Video by Pixabay from Pexels"],
+            "background-credit-url": ["txt", "https://www.pexels.com/video/time-lapse-video-sunset-856973/"],
+            "card-main": ["style", "border-color: #bdae3e; background-color: #dbab3b;"],
+            "card-top": ["style", "background: linear-gradient(to right, #ff0084, #33001b);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        },
+        "cloudy":
+        {
+            "background-video": ["src", "/media/video/sunset/sunset-cloudy.mp4"],
+            "background-credit": ["txt","Video by James Cheney from Pexels"],
+            "background-credit-url": ["txt", "https://www.pexels.com/video/shooting-stars-appears-in-the-sky-at-sunset-3366872/"],
+            "card-main": ["style", "border-color: #bdae3e; background-color: #dbab3b;"],
+            "card-top": ["style", "background: linear-gradient(to right, #ff0084, #33001b);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        },
+        "rain":
+        {
+            "background-video": ["src", "/media/video/sunset/sunset-rain.mp4"],
+            "background-credit": ["txt", "Video by Siti Chairani from Pexels"],
+            "background-credit-url": ["txt", "https://www.pexels.com/video/view-of-sunset-on-a-rainy-day-1891267/"],
+            "card-main": ["style", "border-color: #bdae3e; background-color: #dbab3b;"],
+            "card-top": ["style", "background: linear-gradient(to right, #ff0084, #33001b);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        },
+        "snow":
+        {
+            "background-video": ["src", "/media/video/sunset/sunset-snow.mp4"],
+            "background-credit": ["txt","Video by invisiblepower from Pexels"],
+            "background-credit-url": ["txt","https://www.pexels.com/video/video-of-trees-covered-with-snow-857024"],
+            "card-main": ["style", "border-color: #bdae3e; background-color: #dbab3b;"],
+            "card-top": ["style", "background: linear-gradient(to right, #ff0084, #33001b);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        },
+        "storm":
+        {
+            "background-video": ["src", "/media/video/day/sunset-storm.mp4"],
+            "background-credit": ["txt", "Video by Nathan Cowley from Pexels"],
+            "background-credit-url":  ["txt", "https://www.pexels.com/video/blades-of-grass-2480792/"],
+            "card-main": ["style", "border-color: #bdae3e; background-color: #dbab3b;"],
+            "card-top": ["style", "background: linear-gradient(to right, #ff0084, #33001b);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        },
+        "mist":
+        {
+            "background-video": ["src", "/media/video/sunset/sunset-mist.mp4"],
+            "background-credit": ["txt", "Video by Kelly Lacy from Pexels"],
+            "background-credit-url":  ["txt", "https://www.pexels.com/video/drone-footage-of-the-thick-fog-on-a-mountain-forest-2711145/"],
+            "card-main": ["style", "border-color: #bdae3e; background-color: #dbab3b;"],
+            "card-top": ["style", "background: linear-gradient(to right, #ff0084, #33001b);"],
+            "text-color-show-inf":["style-class", "color: white;"]
+        }
+        
+    },
+    "night":
+    {
+        "sky":
+        {
+            "background-video": ["src", "/media/video/night/night-clear.mp4"],
+            "background-credit": ["txt","Video by Ruvim Miksanskiy from Pexels"],
+            "background-credit-url": ["txt", "https://www.pexels.com/video/time-lapse-footage-of-city-highway-s-vehicular-traffic-at-night-2561431/"],
+            "card-main": ["style", "border-color: #173138; background-color: #247571"],
+            "card-top": ["style", "background: linear-gradient(to right, #0f2027, #203a43, #2c5364);"],
+            "text-color-show-inf":["style-class", "color: #83b553;"]
+        },
+        "cloudy":
+        {
+            "background-video": ["src", "/media/video/night/night-clouds.mp4"],
+            "background-credit": ["txt","Video by Ricardo Esquivel from Pexels"],
+            "background-credit-url": ["txt", "https://www.pexels.com/video/footage-of-a-community-taken-from-dawn-to-sunrise-3184672/"],
+            "card-main": ["style", "border-color: #173138; background-color: #247571"],
+            "card-top": ["style", "background: linear-gradient(to right, #0f2027, #203a43, #2c5364);"],
+            "text-color-show-inf":["style-class", "color: #83b553;"]
+        },
+        "rain":
+        {
+            "background-video": ["src", "/media/video/night/night-rain.mp4"],
+            "background-credit": ["txt", "Video by George Morina from Pexels"],
+            "background-credit-url": ["txt", "https://www.pexels.com/video/an-empty-street-in-london-on-a-rainy-night-3266321/"],
+            "card-main": ["style", "border-color: #173138; background-color: #247571"],
+            "card-top": ["style", "background: linear-gradient(to right, #0f2027, #203a43, #2c5364);"],
+            "text-color-show-inf":["style-class", "color: #83b553;"]
+        },
+        "snow":
+        {
+            "background-video": ["src", "/media/video/night/night-snow.mp4"],
+            "background-credit": ["txt","Video by SebisSPORT TRAVEL H.A from Pexels"],
+            "background-credit-url": ["txt","https://www.pexels.com/video/park-ground-and-benches-covered-in-snow-3534881/"],
+            "card-main": ["style", "border-color: #173138; background-color: #247571"],
+            "card-top": ["style", "background: linear-gradient(to right, #0f2027, #203a43, #2c5364);"],
+            "text-color-show-inf":["style-class", "color: #83b553;"]
+        },
+        "storm":
+        {
+            "background-video": ["src", "/media/video/night/night-storm.mp4"],
+            "background-credit": ["txt", "Video by The Element from Pexels"],
+            "background-credit-url":  ["txt", "https://www.pexels.com/video/thunder-and-flash-of-lightning-2657691/"],
+            "card-main": ["style", "border-color: #173138; background-color: #247571"],
+            "card-top": ["style", "background: linear-gradient(to right, #0f2027, #203a43, #2c5364);"],
+            "text-color-show-inf":["style-class", "color: #83b553;"]
+        },
+        "mist":
+        {
+            "background-video": ["src", "/media/video/night/night-mist.mp4"],
+            "background-credit": ["txt", "Video by Åke Wall from Pexels"],
+            "background-credit-url":  ["txt", "https://www.pexels.com/video/a-man-walking-in-darkness-of-the-night-3427370/"],
+            "card-main": ["style", "border-color: #173138; background-color: #247571"],
+            "card-top": ["style", "background: linear-gradient(to right, #0f2027, #203a43, #2c5364);"],
+            "text-color-show-inf":["style-class", "color: #83b553;"]
+        }
+
+
+    }
+}
