@@ -11,8 +11,8 @@ The panel color will change depending on the time of day the user is located and
 This is my first frontend project in NodeJS and the first time I heavily used JavaScript as my previous projects were focused more towards the backend.
 
 ## To-do:
-- Allow the user to search zip by any country (currently only works for the United States)
-- Move JS and CSS files locally
+- ~~Allow the user to search zip by any country (currently only works for the United States)~~
+- ~~Move JS and CSS files locally~~
 - Cut the background video sizes so the files are smaller and can be easily loaded
 - Upload a live demo
 - Create a Dockerfile to easily launch the project
