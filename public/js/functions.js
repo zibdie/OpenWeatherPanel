@@ -20,9 +20,10 @@ function loadFirstTime()
 //Load on user entering a zipcode
 function callOnZip()
 {
-    let zip = document.getElementById("zipCodeForm").value; 
+    let zip = document.getElementById("zipCodeForm").value;
+    let countrySelect = document.getElementById("countrySelect").value;
 
-    axios.get(`${window.location.origin}/api/getWeather?zip=${zip}`)
+    axios.get(`${window.location.origin}/api/getWeather?zip=${zip}&countrySelect=${countrySelect}`)
     .then(resp => resp)
     .then(resp => changeStyle(resp.data))
     .catch(error => console.error(error));

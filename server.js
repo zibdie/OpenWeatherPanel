@@ -56,6 +56,7 @@ methodResponse = (input, city_null_check) => {
 //Guide to understanding OpenWeatherAPI: https://openweathermap.org/current
 function prepareData(weather_response, method)
 {
+  console.log(`${method} - ${weather_response}`);
    let timezoneUser = weather_response['timezone'];
    let UTCTime = moment.utc();
    let time = moment(UTCTime-timezoneUser).format('H')
@@ -86,22 +87,26 @@ function prepareData(weather_response, method)
 app.get("/api/getWeather", cors(), (req, res) => 
 {
         //We got a zip code as a parameter
+        let methodSend = "zip";
         if(req.query['zip'])
         {
-            if(isNaN(req.query['zip']))
+            if(req.query['countrySelect'].length !== 2 && !/^[a-zA-Z]*$/g.test(req.query['countrySelect']) && req.query['zip'].length <= 5)
             {
-                res.send({"status": 0, "message": "Zip Code Must Be Digits Only"});
-            }
-            else if(req.query['zip'].length !== 5)
-            {
-                res.send({"status": 0, "message": "Zip Code Must Be 5 Digits Long"});
+                res.send({"status": 0, "message": "Error on retrieving country code"});
             }
             else 
             {
-                axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${req.query['zip']},us&units=imperial&appid=${openweathermap_apikey}`)
+                axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=${req.query['zip']},${req.query['countrySelect']}&units=imperial&appid=${openweathermap_apikey}`)
                 .then(resp => resp.data)
                 .then(data => res.send(prepareData(data, "zip")))
-                .catch(error => res.send({"status": 0, "message": error.response.data['message']}))
+                .catch(error => {
+                    //If we run into trouble getting the users location, just fetch New York City as a default
+                    methodSend = "for";
+                    return axios.get(`https://api.openweathermap.org/data/2.5/weather?zip=10010,us&units=imperial&appid=${openweathermap_apikey}`)
+                })
+                .then(resp => resp.data)
+                .then(data => res.send(prepareData(data, methodSend)))
+                .catch(error => console.error(error))
 
             }
         }

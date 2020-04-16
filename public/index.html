@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="./js/jquery-3.4.1.slim.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
     <!-- Replace with Local-->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/bootstrap-select.min.js"></script>
+    <script src="./js/bootstrap-select-country.min.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap-select.min.css" type="text/css" />
+    <link rel="stylesheet" href="./css/bootstrap-select-country.min.css" type="text/css" />
 
     <style>
         #background-video {
@@ -80,6 +84,60 @@
       hr {
         border-top: 2px solid rgba(0,0,0,.1);
       }
+
+/*
+Make Bootstrap-select (a Bootstrap 3 plugin) work with Bootstrap 4
+*/
+      .dropdown-toggle.btn-default {
+  color: #292b2c;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.bootstrap-select.show > .dropdown-menu > .dropdown-menu {
+  display: block;
+}
+.bootstrap-select > .dropdown-menu > .dropdown-menu li.hidden {
+  display: none;
+}
+.bootstrap-select > .dropdown-menu > .dropdown-menu li a {
+  display: block;
+  width: 100%;
+  padding: 3px 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #292b2c;
+  text-align: inherit;
+  white-space: nowrap;
+  background: 0 0;
+  border: 0;
+  text-decoration: none;
+}
+.bootstrap-select > .dropdown-menu > .dropdown-menu li a:hover {
+  background-color: #f4f4f4;
+}
+.bootstrap-select > .dropdown-toggle {
+  width: 100%;
+}
+.dropdown-menu > li.active > a {
+  color: #fff !important;
+  background-color: #337ab7 !important;
+}
+.bootstrap-select .check-mark {
+  line-height: 14px;
+}
+.bootstrap-select .check-mark::after {
+  font-family: "FontAwesome";
+  content: "\f00c";
+}
+.bootstrap-select button {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Make filled out selects be the same size as empty selects */
+.bootstrap-select.btn-group .dropdown-toggle .filter-option {
+  display: inline !important;
+}
 
     </style>
     <title>Weather App!</title>
@@ -158,9 +216,14 @@
                 <table class="table">
 
                   <p class="card-text" style="font-weight: bold;">If the city is wrong or you want to search another city, you can search using a Zip Code (<img src="/media/img/usa-only.png"  height="24" width="24"> US only at the moment) or use your Geolocation <img src="/media/img/globe.png"  height="24" width="24">)<p>
-                  <input type="number" class="form-control mb-2" id="zipCodeForm" placeholder="Enter Zip Code">
+                  <input type="text" class="form-control mb-2" id="zipCodeForm" placeholder="Enter Zip Code">
 
+                  <select class="selectpicker countrypicker" data-flag="true" id="countrySelect"></select>
 
+                  <script>
+                    $('.countrypicker').countrypicker();
+                  </script>
+                  
                   <div class="col-auto">
                     <button type="submit" class="btn btn-primary mb-2" onclick="callOnZip()"><img src="/media/img/search-mag-glass.png"  height="24" width="24"> Zip Code</button>
                     <button type="submit" class="btn btn-primary mb-2" onclick="callOnGeo()"><img src="/media/img/search-geoloc.png"  height="24" width="24"> Geolocation</button>
