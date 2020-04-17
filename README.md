@@ -15,5 +15,5 @@ This is my first frontend project in NodeJS and the first time I heavily used Ja
 - ~~Move JS and CSS files locally~~
 - Cut the background video sizes so the files are smaller and can be easily loaded
 - Upload a live demo
-- Create a Dockerfile to easily launch the project
+- ~~Create a Dockerfile to easily launch the project~~
 - (Optional) Rewrite the backend in Python and create a Dockerfile for that
