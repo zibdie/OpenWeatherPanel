@@ -1,4 +1,4 @@
-![Project Logo](project-logo.png)
+![Project Logo](./exter-assets/project-logo.png)
 
 Open Weather Panel is a small hobby project that displays the weather of a given geolocation, zip code, or even the user's IP address, utilizing OpenWeatherMap.org's API key.
 
@@ -10,10 +10,67 @@ The panel color will change depending on the time of day the user is located and
 
 This is my first frontend project in NodeJS and the first time I heavily used JavaScript as my previous projects were focused more towards the backend.
 
+## Setup Requirements
+
+In order for this to work correctly, you must get an API key from https://openweathermap.org/api (requires signing up for their service) and pasting it in the .env file (Remember to rename .env-sample to .env)
+
+If you wish to run this (without Docker), you must have NodeJS & npm installed. If you have Docker, you can spin up a container without needing to install NodeJS + NPM on your PC.
+
+## Live Demo
+
+You can see a live demostration by clicking on the icon:
+
+[![Live Demo](./exter-assets/demo-button.png)](https://redirct.page.link/WeatherAppProject)
+
+Or by typing/copying and pasting:
+```
+https://redirct.page.link/WeatherAppProject
+```
+
+
+## From the command line
+
+To run it from the commandline, navigate to the directory the project is located and type
+```
+npm run start
+```
+
+or 
+
+```
+node server.js
+```
+
+You can change the port in the ".env" file
+
+
+## From Docker
+Docker is the easiest way to test drive the project since all dependancies will be installed and the server will be spun up. At the time of this writing, this was tested with Docker  Version 19.03.8 on Ubuntu Server 18.04 LTS
+
+To run, simply navigate to the directory where the project is located and type:
+
+```
+docker build -t open_weather_panel .
+```
+
+Once its built, you can run it by typing
+```
+docker container run open_weather_panel
+```
+
+## To Heroku
+
+If you wish to deploy it to Heroku, here is how the steps how.
+
 ## To-do:
 - ~~Allow the user to search zip by any country (currently only works for the United States)~~
 - ~~Move JS and CSS files locally~~
 - Cut the background video sizes so the files are smaller and can be easily loaded
-- Upload a live demo
+- ~~Upload a live demo~~
 - ~~Create a Dockerfile to easily launch the project~~
 - (Optional) Rewrite the backend in Python and create a Dockerfile for that
+
+
+### Notice
+
+Icons provided by icons8
