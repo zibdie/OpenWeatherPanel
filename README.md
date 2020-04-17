@@ -58,10 +58,6 @@ Once its built, you can run it by typing
 docker container run open_weather_panel
 ```
 
-## To Heroku
-
-If you wish to deploy it to Heroku, here is how the steps how.
-
 ## To-do:
 - ~~Allow the user to search zip by any country (currently only works for the United States)~~
 - ~~Move JS and CSS files locally~~
