@@ -72,7 +72,7 @@ function prepareData(weather_response, method)
        "current_min": weather_response['main']['temp_min'] + " °F",
        "current_max": weather_response['main']['temp_max'] + " °F",
        "current_wind_speed": weather_response['wind']['speed'] + " m/h",
-       "weather_icon": `http://openweathermap.org/img/w/${weather_response['weather'][0]['icon']}.png`}
+       "weather_icon": `https://openweathermap.org/img/w/${weather_response['weather'][0]['icon']}.png`}
     }
 
     const jsonFile = require("./public/media/themes.json");
