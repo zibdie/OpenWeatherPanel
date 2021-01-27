@@ -1,6 +1,7 @@
 #Use the smallest image possible
 FROM node:alpine
 
+#Heroku ignores these anyway
 ENV PORT 5003
 EXPOSE 5003
 

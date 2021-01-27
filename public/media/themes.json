@@ -9,7 +9,7 @@
             "background-credit-url": ["txt", "https://www.pexels.com/video/a-residential-community-built-besides-lake-de-garda-3653222/"],
             "card-main": ["style", "border-color: #399cbd; background-color: #e8f4f8;"],
             "card-top": ["style", "background-color: #BBF0F3; background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);"],
-            "text-color-show-inf":["style-class", "color: white;"]
+            "text-color-show-inf":["style-class", "color: #4141D8;"]
         },
         "cloudy":
         {
@@ -18,7 +18,7 @@
             "background-credit-url": ["txt", "https://www.pexels.com/video/green-fields-under-a-blue-and-cloudy-sky-3843101/"],
             "card-main": ["style", "border-color: #399cbd; background-color: #e8f4f8;"],
             "card-top": ["style", "background-color: #BBF0F3; background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);"],
-            "text-color-show-inf":["style-class", "color: white;"]
+            "text-color-show-inf":["style-class", "color: #4141D8;"]
         },
         "rain":
         {
@@ -27,7 +27,7 @@
             "background-credit-url": ["txt", "https://www.pexels.com/video/droplets-of-water-in-a-water-basin-creating-a-splash-3535854/"],
             "card-main": ["style", "border-color: #52a9ba; background-color: #5ab9cc;"],
             "card-top": ["style", "background: linear-gradient(to bottom, #74ebd5, #acb6e5);"],
-            "text-color-show-inf":["style-class", "color: white;"]
+            "text-color-show-inf":["style-class", "color: #4141D8;"]
         },
         "snow":
         {
@@ -36,7 +36,7 @@
             "background-credit-url": ["txt","https://www.pexels.com/video/aerial-shot-of-sunset-857021/"],
             "card-main": ["style", "border-color: #a4d4de; background-color: #d1f7ff;"],
             "card-top": ["style", "background: linear-gradient(to bottom, #4ca1af, #c4e0e5);"],
-            "text-color-show-inf":["style-class", "color: white;"]
+            "text-color-show-inf":["style-class", "color: #4141D8;"]
         },
         "storm":
         {
@@ -45,7 +45,7 @@
             "background-credit-url":  ["txt", "https://www.pexels.com/video/palm-trees-on-a-windy-day-1730394/"],
             "card-main": ["style", "border-color: #3f7696; background-color: #519dc9;"],
             "card-top": ["style", "background: linear-gradient(to bottom, #525252, #3d72b4);"],
-            "text-color-show-inf":["style-class", "color: white;"]
+            "text-color-show-inf":["style-class", "color: #4141D8;"]
         },
         "mist":
         {
@@ -54,7 +54,7 @@
             "background-credit-url":  ["txt", "https://www.pexels.com/video/aerial-video-of-coastline-854752/"],
             "card-main": ["style", "border-color: #3f7696; background-color: #519dc9;"],
             "card-top": ["style", "background: linear-gradient(to bottom, #525252, #3d72b4);"],
-            "text-color-show-inf":["style-class", "color: white;"]
+            "text-color-show-inf":["style-class", "color: #4141D8;"]
         }
     },
     "sunset":

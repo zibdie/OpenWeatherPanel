@@ -58,15 +58,6 @@ Once its built, you can run it by typing
 docker container run open_weather_panel
 ```
 
-## To-do:
-- ~~Allow the user to search zip by any country (currently only works for the United States)~~
-- ~~Move JS and CSS files locally~~
-- Cut the background video sizes so the files are smaller and can be easily loaded
-- ~~Upload a live demo~~
-- ~~Create a Dockerfile to easily launch the project~~
-- (Optional) Rewrite the backend in Python and create a Dockerfile for that
-
-
 ### Notice
 
 Icons provided by icons8

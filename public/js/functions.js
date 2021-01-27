@@ -1,43 +1,80 @@
-showError = (errormsg) => {
+let showError = (errormsg) => {
     document.getElementById("msg_user").textContent = errormsg;
     document.getElementById("cityname").textContent = "";
     document.getElementById("msg_user").setAttribute("style", "font-weight: bold; color: red;");
 }
 
-//Load on first run
-function loadFirstTime()
-{
-   axios.get(`https://ipv4.icanhazip.com/`)
-   .then(resp => resp.data)
-   .then(resp => resp.replace(/(\r\n|\n|\r)/gm,""))
-   .then(data => {
-    return axios.get(`${window.location.origin}/api/getWeather?ip=${data}`)
-   })
-   .then(resp => changeStyle(resp.data))
-   .catch(error => console.error(error));
+let jumpToTopOfPage = () => window.scrollTo({ top: 0, behavior: `smooth` });
+
+function showErrorModal(errorMsg) {
+    document.querySelector("#ModalErrorInfoShow").textContent = errorMsg;
+    $('#exampleModal').modal('show')
+    console.error(errorMsg)
 }
 
-//Load on user entering a zipcode
-function callOnZip()
+/* Load on first run */
+async function loadFirstTime()
+{
+    try {
+        let getIPAddr = await fetch("https://ipv4.icanhazip.com/")
+        let getIPAddrText = await getIPAddr.text()
+        let getIPAddrData = await getIPAddrText.replace(/(\r\n|\n|\r)/gm,""); /* Strip out any white spaces or newlines*/
+        let callWeatherAPI = await fetch(`${window.location.origin}/api/getWeather?ip=${getIPAddrData}`)
+        changeStyle(await callWeatherAPI.json())
+    } catch (error) {
+        showErrorModal(`There was an error while trying to load the page: ${error}`)
+    }
+
+}
+
+/* Listen on Enter button - Trigger callOnZip */
+
+document.addEventListener("keyup", (e) => {
+    /* 
+    Check to see if the 'Enter' key was the key pressed 
+    NOTE: keep the 'keyCode' (even if its depricated)
+    */
+
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        if($('#exampleModal').hasClass('show') == false)
+        {
+            callOnZip();
+        }
+        if($('#exampleModal').hasClass('show') == true) 
+        {
+            $('#exampleModal').modal('toggle')
+        }
+    }
+})
+
+/* Load on user entering a zipcode */
+async function callOnZip()
 {
     let zip = document.getElementById("zipCodeForm").value;
     let countrySelect = document.getElementById("countrySelect").value;
 
-    axios.get(`${window.location.origin}/api/getWeather?zip=${zip}&countrySelect=${countrySelect}`)
-    .then(resp => resp)
-    .then(resp => changeStyle(resp.data))
-    .catch(error => console.error(error));
+    if(zip.length == 0) {
+        showErrorModal( "The zip code field is empty! Enter a valid zip code!");
+    } else {
+        try {
+            let getZipRes = await fetch(`${window.location.origin}/api/getWeather?zip=${zip}&countrySelect=${countrySelect}`)
+            changeStyle(await getZipRes.json())
+        } catch (error) {
+            showErrorModal(`There was an error while trying to get Weather info from your chosen zip code: ${error}`)
+        }
+    }
 }
 
-//---- EVERYTHING HERE FOR GEO ---
+/* Geo Location functions */
 function geoError()
 {
     document.getElementById("msg_user").textContent = "Unable to get your location. Did you decline the permission box?";
     document.getElementById("city_name").textContent = "";
     document.getElementById("msg_user").setAttribute("style", "font-weight: bold; color: red;");
+    jumpToTopOfPage();
 }
 
-function geoProcess(position) {
+async function geoProcess(position) {
     document.getElementById("msg_user").textContent = "Getting Data...";
     document.getElementById("weather_icon").setAttribute("src", "./media/loading.gif");
     document.getElementById("msg_user").setAttribute("style", "font-weight: bold; color: silver;");
@@ -45,20 +82,22 @@ function geoProcess(position) {
 
     let positionArray = [(position.coords.latitude).toFixed(7), (position.coords.longitude).toFixed(7)];
 
-    console.log(`${window.location.origin}/api/getWeather?geoip=${positionArray[0]},${positionArray[1]}`)
+    try {
+        let getGeoData = await fetch(`${window.location.origin}/api/getWeather?geoip=${positionArray[0]},${positionArray[1]}`)
+        changeStyle(await getGeoData.json())
+    } catch (error) {
+        showErrorModal(`There was an error while trying to get Weather info from your Geolocation: ${error}`)
+    }
 
-    axios.get(`${window.location.origin}/api/getWeather?geoip=${positionArray[0]},${positionArray[1]}`)
-    .then(resp => resp)
-    .then(resp => changeStyle(resp.data))
-    .catch(error => console.error(error));
 }
 
 function callOnGeo()
 {
-    //Check if geolocation is supported on the browser
+    /* Check if geolocation is supported on the browser */
     if(!navigator.geolocation)
     {
         showError("Geolocation is not supported for your browser")
+        jumpToTopOfPage();
     }
     else
     {
@@ -70,14 +109,14 @@ function callOnGeo()
 }
 
 
-//Change the actual style
+/* Changes the actual page style */
 function changeStyle(results)
 {
     document.getElementById("msg_user").setAttribute("style", "")
 
     if(results['status'] == 1)
     {
-        //Show Weather Data       
+        /* Add/Change Weather Data */       
         for (var key of Object.keys(results['weather_response'])) 
         {
             if(key != "weather_icon")
@@ -89,8 +128,7 @@ function changeStyle(results)
                 document.getElementById(key).setAttribute("src", results['weather_response'][key]);
             }
         }
-        //Edit CSS
-        console.log(results)
+        /* Change CSS */
         for (var key of Object.keys(results['css'])) 
         {
             try {
@@ -126,5 +164,6 @@ function changeStyle(results)
         document.getElementById("msg_user").textContent = "There was an error: " + results['message'];
         document.getElementById("city_name").textContent = "";
         document.getElementById("msg_user").setAttribute("style", "font-weight: bold; color: red;");
+        jumpToTopOfPage();
     }
 }

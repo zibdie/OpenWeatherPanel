@@ -10,11 +10,11 @@ const openweathermap_apikey = process.env.API_KEY;
 
 
 const CORSOption = {
-    //Add CORS option if you wish
+    /* Add CORS option if you wish */
 }
 
-//Either day, afternoon (named sunset), or night
-timeofdayint = (hr) => {
+/* Either day, afternoon (named sunset), or night */
+let timeofdayint = (hr) => {
     return hr >= 0  && hr <= 6 ? 'night'
           : hr >= 7  && hr <= 12 ? 'day'
           : hr >= 13 && hr <= 18 ? 'sunset'
@@ -22,14 +22,14 @@ timeofdayint = (hr) => {
           : null
 }
 
-//Get the users current time from the UTC offset from OpenWeatherAPI
-currTimeFromUTC = (utc_seconds) => {
+/* Get the users current time from the UTC offset from OpenWeatherAPI */
+let currTimeFromUTC = (utc_seconds) => {
     const nowInUTC = new Date().getTime() 
     let currSec = parseInt((nowInUTC / 1000).toFixed(0))-utc_seconds
 }
 
 
-//Weather conditions to consider: https://openweathermap.org/weather-conditions
+/* Weather conditions to consider: https://openweathermap.org/weather-conditions */
 checkCondition = (description) => {
     return description.includes('sky') ? 'sky'
     : description.includes('cloudy') || description.includes('clouds') ? 'cloudy'
@@ -40,10 +40,10 @@ checkCondition = (description) => {
     : null;
 }
 
-//Properly format the sentence
+/* Properly format the input */
 UpperCaseSentence = (input) => input.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });;
 
-//Messages to the user
+/* Messages to the user */
 methodResponse = (input, city_null_check) => {
     return input == "for" ? "We had trouble finding your postal so instead, we are showing you the weather for "
     :  (city_null_check != "" && input == "geo") ? "According to your browsers GPS coordinates, you are located in "
@@ -53,10 +53,9 @@ methodResponse = (input, city_null_check) => {
     : null;
 }
 
-//Guide to understanding OpenWeatherAPI: https://openweathermap.org/current
+/* Guide to understanding OpenWeatherAPI: https://openweathermap.org/current */
 function prepareData(weather_response, method)
 {
-  console.log(`${method} - ${weather_response}`);
    let timezoneUser = weather_response['timezone'];
    let UTCTime = moment.utc();
    let time = moment(UTCTime-timezoneUser).format('H')
@@ -86,7 +85,7 @@ function prepareData(weather_response, method)
 
 app.get("/api/getWeather", cors(), (req, res) => 
 {
-        //We got a zip code as a parameter
+        /* We got a zip code as a parameter */
         let methodSend = "zip";
         if(req.query['zip'])
         {
@@ -110,7 +109,7 @@ app.get("/api/getWeather", cors(), (req, res) =>
 
             }
         }
-        //We got an IP as a parameter
+        /* We got an IP as a parameter */
         else if (req.query['ip'])
         {
             let methodSend = "ip";
@@ -134,7 +133,7 @@ app.get("/api/getWeather", cors(), (req, res) =>
                 .catch(error => console.error(error))
             }
         }
-        //We got a geolocation as a parameter
+        /* We got a geolocation as a parameter */
         else if(req.query['geoip'])
         {
             regex_lat = /^(-?[1-8]?\d(?:\.\d{1,18})?|90(?:\.0{1,18})?)$/;
@@ -155,7 +154,12 @@ app.get("/api/getWeather", cors(), (req, res) =>
         }
 });
 
-//Set a static folder
+/* Weather Icon needs direct pathing */
+app.get("/favicon.ico",  cors(), (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'media', 'weather_icon.ico'));
+})
+
+/* Set a static folder to serve */
 app.use(cors(), express.static(path.join(__dirname, 'public')))
 
 app.listen(PORT, () => console.log(`Server started on post ${PORT}`))

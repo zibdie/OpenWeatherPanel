@@ -12,7 +12,6 @@
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <!-- Replace with Local-->
-    <script src="./js/axios.min.js"></script>
     <script src="./js/bootstrap-select.min.js"></script>
     <script src="./js/bootstrap-select-country.min.js"></script>
     <link rel="stylesheet" href="./css/bootstrap-select.min.css" type="text/css" />
@@ -142,23 +141,13 @@ Make Bootstrap-select (a Bootstrap 3 plugin) work with Bootstrap 4
     </style>
     <title>Weather App!</title>
 
-        <!-- Load Functions -->
-        <script src='./js/functions.js'></script>
-        <script>
-          
-        </script>
   </head>
 
   <body>
     <a href="https://redirct.page.link/WeatherAppProjectGithub"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_left_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>    <h1 id="hide-js" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">You need to enable JavaScript to see this page!</h1>
 
     <div id="js-enabled" style="display: none">
-      <script>
-        loadFirstTime();
-        //Unhide if Javascript is enabled
-        document.getElementById("js-enabled").setAttribute("style", "display: block;");
-        document.getElementById("hide-js").setAttribute("style", "display: none");
-      </script>
+
 <center>
           <!-- Card for Main Weather Information-->
           <div class="container">
@@ -179,7 +168,7 @@ Make Bootstrap-select (a Bootstrap 3 plugin) work with Bootstrap 4
                   </thead>
                   <tbody>
                     <tr>
-                      <td><img src="/media/img/icon-description.png"  height="24" width="24"> </td>
+                      <td><img src="/media/img/icon-description.png" height="24" width="24"> </td>
                       <td class="text-color-show-inf" >Weather Today</td>
                       <td class="text-color-show-inf" id="current_weather_descp">Waiting...</td>
                     </tr>
@@ -235,9 +224,40 @@ Make Bootstrap-select (a Bootstrap 3 plugin) work with Bootstrap 4
           <!-- End of Container-->
 </center>
     </div>
+
+    <!-- Error Modal Here-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Error!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="ModalErrorInfoShow">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- End of Error Modal Here-->
+
     <footer style="font-weight: bold;"><span id="background-credit">#</span> - <span id="background-credit-url">#</span></footer>
     <video autoplay muted loop id="background-video">
       <source src="" type="video/mp4">
   </video>
+          <!-- Load Functions -->
+          <script src='./js/functions.js'></script>
+          <script>
+        loadFirstTime();
+        //Unhide if Javascript is enabled
+        document.getElementById("js-enabled").setAttribute("style", "display: block;");
+        document.getElementById("hide-js").setAttribute("style", "display: none");
+          </script>
   </body>
 </html>
