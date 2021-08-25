@@ -1,3 +1,5 @@
+let usingCelsius = false;
+
 let showError = (errormsg) => {
     document.getElementById("msg_user").textContent = errormsg;
     document.getElementById("cityname").textContent = "";
@@ -166,4 +168,26 @@ function changeStyle(results)
         document.getElementById("msg_user").setAttribute("style", "font-weight: bold; color: red;");
         jumpToTopOfPage();
     }
+}
+
+function toggleCelsius(event)
+{
+    const temperatureIds = ["current_temp", "current_feels_like", "current_max", "current_min"];
+    for(const id of temperatureIds)
+    {
+        const element = document.getElementById(id);
+        let temperature = element.innerHTML.split(" ")[0];
+        // We are still loading, so abort
+        if(isNaN(temperature))
+            return;
+        if(usingCelsius)
+            temperature = (temperature * 9.0 / 5.0) + 32.0;
+        else
+            temperature = (temperature - 32.0) * 5.0 / 9.0;
+        element.innerHTML = temperature.toFixed(2) + ` °${usingCelsius ? 'F' : 'C'}`; 
+    }
+    usingCelsius = !usingCelsius;
+    event.target.innerHTML = `Use ${usingCelsius ? "Fahrenheit" : "Celsius"}`;
+    event.target.classList.toggle("btn-primary");
+    event.target.classList.toggle("btn-info");
 }
