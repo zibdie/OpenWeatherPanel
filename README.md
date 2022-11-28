@@ -20,11 +20,11 @@ If you wish to run this (without Docker), you must have NodeJS & npm installed. 
 
 You can see a live demostration by clicking on the icon:
 
-[![Live Demo](./exter-assets/demo-button.png)](https://redirct.page.link/WeatherAppProject)
+[![Live Demo](./exter-assets/demo-button.png)](https://dc-openweatherapp-demo.herokuapp.com/)
 
 Or by typing/copying and pasting:
 ```
-https://redirct.page.link/WeatherAppProject
+https://dc-openweatherapp-demo.herokuapp.com/
 ```
 
 
