@@ -71,9 +71,7 @@ methodResponse = (input, city_null_check) => {
 
 /* Guide to understanding OpenWeatherAPI: https://openweathermap.org/current */
 function prepareData(weather_response, method) {
-  let timezoneUser = weather_response["timezone"];
-  let UTCTime = moment.utc();
-  let time = moment(UTCTime - timezoneUser).format("H");
+  let time = moment(moment.utc() - weather_response["timezone"]).format("H");
   let infoData = {};
   infoData = {
     status: 1,
@@ -199,7 +197,9 @@ if (openweathermap_apikey !== undefined) {
   /* Set a static folder to serve */
   app.use(cors(), express.static(path.join(__dirname, "public")));
 
-  app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+  app.listen(PORT, () =>
+    console.log(`OpenWeatherPanel Server started on port: ${PORT}`)
+  );
 } else {
   console.error(
     "Please enter your OpenWeatherMap API Key in the config.json file"
