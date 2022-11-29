@@ -1,22 +1,32 @@
 {
-  "name": "server",
+  "name": "open-weather-panel",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "![Project Logo](./exter-assets/project-logo.png)",
+  "main": "server.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zibdie/OpenWeatherPanel.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zibdie/OpenWeatherPanel/issues"
+  },
+  "homepage": "https://github.com/zibdie/OpenWeatherPanel#readme",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.2.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "moment": "^2.24.0"
+    "express": "^4.18.2",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
-    "nodemon": "^2.0.2"
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.0"
   }
 }
