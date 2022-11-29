@@ -45,7 +45,7 @@ You can change the port in the ".env" file
 
 
 ## From Docker
-Docker is the easiest way to test drive the project since all dependancies will be installed and the server will be spun up. At the time of this writing, this was tested with Docker  Version 19.03.8 on Ubuntu Server 18.04 LTS
+Docker is the easiest way to test drive the project since all dependancies will be installed and the server will be spun up. At the time of this writing, this was tested with Docker Version 19.03.8 on Ubuntu Server 18.04 LTS
 
 To run, simply navigate to the directory where the project is located and type:
 
@@ -57,6 +57,14 @@ Once its built, you can run it by typing
 ```
 docker container run open_weather_panel
 ```
+
+### DockerHub
+
+You can now pull this image from Dockerhub by typing this command:
+```
+docker pull zibdie/openweatherpanel:latest
+```
+
 
 ### Notice
 
