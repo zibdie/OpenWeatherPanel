@@ -199,7 +199,7 @@ if (openweathermap_apikey !== undefined) {
   /* Set a static folder to serve */
   app.use(cors(), express.static(path.join(__dirname, "public")));
 
-  app.listen(PORT, () => console.log(`Server started on post ${PORT}`));
+  app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 } else {
   console.error(
     "Please enter your OpenWeatherMap API Key in the config.json file"
