@@ -175,13 +175,18 @@ app.get("/api/getWeather", cors(), async (req, res) => {
     let geosplit = req.query["geoip"].split(",");
     if (geosplit[0].match(regex_lat) && geosplit[1].match(regex_long)) {
       let geosplit = req.query["geoip"].split(",");
-      axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${geosplit[0]}&lon=${geosplit[1]}&units=imperial&appid=${openweathermap_apikey}`
-        )
-        .then((resp) => resp.data)
-        .then((data) => res.send(prepareData(data, "geo")))
-        .catch((error) => console.error(error));
+      try {
+        const getResp = await axios
+          .get(
+            `https://api.openweathermap.org/data/2.5/weather?lat=${geosplit[0]}&lon=${geosplit[1]}&units=imperial&appid=${openweathermap_apikey}`
+          )
+          .then((resp) => resp.data);
+
+        res.send(prepareData(getResp, "geo"));
+      } catch (e) {
+        console.error(e);
+        res.send({ status: 0, message: e });
+      }
     } else {
       res.send({ status: 0, message: "Invalid Coordinates" });
     }
