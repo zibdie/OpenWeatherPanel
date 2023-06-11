@@ -68,7 +68,7 @@ You can now pull the latest image from DockerHub by typing this command:
 docker pull zibdie/openweatherpanel:latest
 ```
 
-You can find the DockerHub page here: https://hub.docker.com/repository/docker/zibdie/openweatherpanel
+You can find the DockerHub page here: https://hub.docker.com/r/zibdie/openweatherpanel
 
 ### Notice
 
