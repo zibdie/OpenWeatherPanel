@@ -20,7 +20,7 @@ If you wish to run this (without Docker), you must have NodeJS & npm installed. 
 
 You can see a live demostration by clicking on the icon:
 
-[![Live Demo](./exter-assets/demo-button.png)](https://openweatherpanel.onrender.com/)
+[![Live Demo](https://raw.githubusercontent.com/zibdie/OpenWeatherPanel/master/exter-assets/demo-button.png)](https://openweatherpanel.onrender.com/)
 
 Or by typing/copying and pasting:
 
