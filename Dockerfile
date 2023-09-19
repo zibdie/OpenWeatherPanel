@@ -1,5 +1,5 @@
-#Use the smallest image possible
-FROM node:alpine
+#Use the smallest image possible - Pin a working version of node:alpine
+FROM node@sha256:923cd6fac65f6892aa8bbb4208ad708c56b35f9ab86eca07ccc7b56dd28c9c77
 
 #Heroku ignores these anyway
 ENV PORT 5003
