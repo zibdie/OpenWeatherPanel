@@ -1,5 +1,7 @@
 ![Project Logo](https://raw.githubusercontent.com/zibdie/OpenWeatherPanel/master/exter-assets/project-logo.png)
 
+[https://github.com/zibdie/OpenWeatherPanel](https://github.com/zibdie/OpenWeatherPanel)
+
 Open Weather Panel is a small hobby project that displays the weather of a given geolocation, zip code, or even the user's IP address, utilizing OpenWeatherMap.org's API key.
 
 While many universities and online courses many offer the same project, they neglect the style and interactivity of the website, often just judging the student to be able to call the API, read the JSON output, and use minimal javascript to change the text to output the information.
